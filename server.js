@@ -6,7 +6,6 @@ const ejsLayouts = require('express-ejs-layouts')
 
 // Variables
 const app = express();
-const PORT = 3000;
 const rowdyResults = rowdy.begin(app)
 
 // Middleware
@@ -17,7 +16,7 @@ app.use(express.urlencoded({ extended: false }))
 
 
 
-// Routesrs
+// Routes
 app.get('/', (req, res) => {
     res.render('home')
 })
@@ -59,6 +58,7 @@ app.post('/favorites', async (req, res) => {
 })
 
 // Start the server
+const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
     rowdyResults.print()
     // console.log(`Server is listening on port ${PORT}`)
