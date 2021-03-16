@@ -1,17 +1,21 @@
-<h1> Hell from favorites</h1>
+<h1> Hello from animals!</h1>
 
 <% animals.forEach(animal => { %>
-
+<div id="container">
+    <img src="<%= animal.image_url %>" onerror="this.onerror=null;this.src='/images/the_animals.jpg';" />
+    <div id="mini-container">   
+            
     <% if (animal.exctinct === true) { %>
-    <h3 style="color: red"><%= animal.species_name %> </h3>
+    <h3 id="extinct" style="color: red"><%= animal.species_name %> </h3>
         
     <% } else { %>
-     <h3><%= animal.species_name %></h3> 
+    <h3 class="species"><%= animal.species_name %></h3> 
+
     <% } %>
+
     <h3><em><%= animal.scientific_name %></em></h3>
-    <img max-height="300px" max-width="300px" src="<%= animal.image_url %>" />
-    <h3><%= animal.description %></h3>
-
-
-
+    </div>
+</div>
+    <h2><%= animal.description %></h2>
+ 
 <% }) %>
